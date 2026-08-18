@@ -25,7 +25,7 @@ Si quieres verla por Tailscale Serve:
 tailscale serve --bg --https=8444 http://127.0.0.1:3001
 ```
 
-En este proyecto `next.config.ts` permite el origen
+En este proyecto `next.config.mjs` permite el origen
 `tridente-server.tail814f21.ts.net` para que Next.js dev cargue JS/CSS desde
 Tailscale sin bloquear los assets internos.
 
