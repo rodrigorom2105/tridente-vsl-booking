@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aplicacion Closer | VSL",
+  title: "VSL - Tridente",
   description:
     "Landing VSL para aplicar a un equipo comercial con video y calendario de GoHighLevel con formulario integrado.",
 };
