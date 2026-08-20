@@ -48,7 +48,7 @@ export default function VslLanding() {
             </div>
 
             <h1 className="w-full text-left text-balance text-[1.76rem] font-black leading-[0.98] tracking-normal text-[#111827] sm:text-[2.24rem] lg:text-[2.36rem] xl:text-[2.48rem]">
-              Como facturar de $5,000 a $20,000 al mes como Closer en un
+              Como facturar de $8,000 a $30,000 al mes como Closer en un
               equipo comercial de alto rendimiento
             </h1>
 
