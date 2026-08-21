@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VSL - Tridente",
+  title: "Grupo Financiero Tridente",
   description:
-    "Landing VSL para aplicar a un equipo comercial con video y calendario de GoHighLevel con formulario integrado.",
+    "Landing VSL para aplicar al equipo remoto de Grupo Financiero Tridente con video y calendario de GoHighLevel.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#f2f6ff]">{children}</body>
+      <body className="min-h-full bg-black">{children}</body>
     </html>
   );
 }

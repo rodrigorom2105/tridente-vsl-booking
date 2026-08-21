@@ -1,11 +1,44 @@
 "use client";
 
-import { CalendarCheck, CheckCircle2, CirclePlay } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  CalendarCheck,
+  Globe2,
+  Play,
+  ShieldCheck,
+  UsersRound,
+} from "lucide-react";
+import Image from "next/image";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
 const videoUrl = process.env.NEXT_PUBLIC_VIDEO_EMBED_URL;
-const ghlCalendarUrl = process.env.NEXT_PUBLIC_GHL_CALENDAR_EMBED_URL;
+const ghlSurveyUrl = "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
+const ghlSurveyId = "8KeDBS7oRjUWKuq7Japx";
+
+const highlights = [
+  {
+    icon: BarChart3,
+    title: "Ingresos reales",
+    body: "De $8K a $30K+ al mes.",
+  },
+  {
+    icon: UsersRound,
+    title: "Equipo ganador",
+    body: "Entrenamiento, apoyo y cultura de alto rendimiento.",
+  },
+  {
+    icon: Globe2,
+    title: "Libertad desde cualquier lugar",
+    body: "Trabaja remoto. Tú pones los límites, nosotros el camino.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Bulletproof",
+    body: "Cientos de agentes en la industria lo estan haciendo. Evidencia probada.",
+  },
+];
 
 export default function VslLanding() {
   const [showApplication, setShowApplication] = useState(false);
@@ -37,33 +70,52 @@ export default function VslLanding() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f2f6ff] text-[#050505]">
-      <section className="relative isolate flex min-h-svh overflow-hidden bg-[linear-gradient(180deg,#edf4ff_0%,#f8fbff_76%,#ffffff_100%)] px-5 py-6 sm:px-8 lg:px-10">
-        <BrandAura />
+    <main className="min-h-screen bg-black text-white">
+      <section className="relative isolate flex min-h-svh overflow-hidden bg-[#020202] px-5 py-5 sm:px-8 sm:py-7 lg:px-10">
+        <GoldAtmosphere />
 
-        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-3rem)] w-full max-w-[760px] items-center justify-center">
-          <div className="flex w-full max-w-[668px] flex-col items-center">
-            <div className="mb-5 w-full sm:mb-6">
-              <LogoMark />
+        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-2.5rem)] w-full max-w-[1180px] flex-col">
+          <header className="flex w-full items-start justify-start">
+            <LogoMark />
+          </header>
+
+          <div className="grid flex-1 content-center gap-7 py-7 sm:gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(460px,1.05fr)] lg:items-center lg:gap-12 lg:py-10">
+            <div className="max-w-[690px]">
+              <h1 className="text-balance text-[2.08rem] font-black leading-[1.08] tracking-normal text-white sm:text-[3.3rem] lg:text-[4.15rem]">
+                Cómo generar de{" "}
+                <span className="bg-[linear-gradient(90deg,#f8c447_0%,#b77a16_42%,#ffe08a_72%,#d7951c_100%)] bg-clip-text text-transparent">
+                  $8,000 a $30,000
+                </span>{" "}
+                dólares al mes como agente remoto
+              </h1>
+
+              <p className="mt-5 max-w-[620px] text-[1.06rem] font-semibold leading-7 text-white/88 sm:text-[1.35rem] sm:leading-8">
+                Con{" "}
+                <span className="font-black text-[#f7bd34]">
+                  entrenamientos, sistemas probados
+                </span>{" "}
+                y un{" "}
+                <span className="font-black text-[#f7bd34]">
+                  equipo diseñado para ganar.
+                </span>
+              </p>
             </div>
 
-            <h1 className="w-full text-left text-balance text-[1.76rem] font-black leading-[0.98] tracking-normal text-[#111827] sm:text-[2.24rem] lg:text-[2.36rem] xl:text-[2.48rem]">
-              Como facturar de $8,000 a $30,000 al mes como Closer en un
-              equipo comercial de alto rendimiento
-            </h1>
-
-            <div className="mt-5 w-full sm:mt-6 lg:mt-7">
+            <div className="w-full">
               <VideoFrame />
-            </div>
 
-            <button
-              type="button"
-              onClick={handleApplyClick}
-              className="mx-auto mt-5 inline-flex min-h-12 min-w-[224px] items-center justify-center rounded-[4px] border border-[#0f57ff]/30 bg-white/80 px-7 py-3 font-mono text-base font-semibold tracking-normal text-[#0f57ff] shadow-[0_18px_42px_rgba(15,87,255,0.18)] transition hover:border-[#0f57ff] hover:bg-white focus:outline-none focus:ring-4 focus:ring-[#0f57ff]/20 sm:mt-6"
-            >
-              Aplicar al equipo
-            </button>
+              <button
+                type="button"
+                onClick={handleApplyClick}
+                className="mx-auto mt-6 inline-flex min-h-12 w-full max-w-[330px] items-center justify-center gap-3 rounded-[6px] border border-[#fff0a8]/45 bg-[linear-gradient(180deg,#ffd35b_0%,#f2ad23_47%,#d58b12_100%)] px-7 py-3.5 text-base font-black tracking-normal text-[#070707] shadow-[0_16px_38px_rgba(231,166,38,0.28),inset_0_1px_0_rgba(255,255,255,0.45)] transition hover:translate-y-[-1px] hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-[#f6bb36]/25 sm:text-lg"
+              >
+                Aplicar al equipo
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
           </div>
+
+          <HighlightGrid />
         </div>
       </section>
 
@@ -71,7 +123,7 @@ export default function VslLanding() {
         <section
           ref={applicationRef}
           id="aplicacion"
-          className="bg-[#f8fbff] px-5 pb-14 pt-6 text-[#050505] sm:px-8 lg:pb-[4.5rem]"
+          className="bg-[linear-gradient(180deg,#050505_0%,#0c0802_100%)] px-5 pb-14 pt-8 text-white sm:px-8 lg:pb-[4.5rem]"
         >
           <div className="mx-auto max-w-[1040px]">
             <ApplicationEmbeds />
@@ -82,43 +134,46 @@ export default function VslLanding() {
   );
 }
 
-function BrandAura() {
+function GoldAtmosphere() {
   return (
-    <div
-      className="pointer-events-none absolute -left-[72px] top-[148px] hidden h-[540px] w-[540px] opacity-90 blur-[9px] lg:block"
-      aria-hidden="true"
-    >
-      <div className="absolute left-[30px] top-[20px] h-[278px] w-[386px] rotate-[-18deg] rounded-[52%] border-[50px] border-[#0f57ff] opacity-[0.42] blur-[16px]" />
-      <div className="absolute left-[38px] top-[44px] h-[268px] w-[374px] rotate-[-18deg] rounded-[52%] border-[36px] border-black opacity-[0.22] blur-[13px]" />
-      <div className="absolute left-[82px] top-[246px] h-[244px] w-[359px] rotate-[16deg] rounded-[52%] border-[47px] border-[#0f57ff] opacity-[0.39] blur-[18px]" />
-      <div className="absolute left-[89px] top-[267px] h-[229px] w-[335px] rotate-[16deg] rounded-[52%] border-[34px] border-black opacity-[0.2] blur-[14px]" />
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_12%,rgba(255,201,76,0.13),transparent_26%),radial-gradient(circle_at_84%_10%,rgba(255,198,67,0.12),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.025)_0%,transparent_34%,rgba(244,174,42,0.06)_100%)]" />
+      <div className="absolute -right-12 top-12 h-[210px] w-[410px] rotate-[-28deg] opacity-90 sm:right-6 sm:top-14">
+        <span className="absolute right-0 top-3 h-[2px] w-full bg-[linear-gradient(90deg,transparent,#f7bd34,transparent)] shadow-[0_0_16px_rgba(247,189,52,0.95)]" />
+        <span className="absolute right-2 top-12 h-[1px] w-[92%] bg-[linear-gradient(90deg,transparent,#bc7c12,transparent)] shadow-[0_0_12px_rgba(247,189,52,0.65)]" />
+        <span className="absolute right-6 top-[5.25rem] h-[2px] w-[78%] bg-[linear-gradient(90deg,transparent,#ffdc78,transparent)] shadow-[0_0_18px_rgba(255,220,120,0.88)]" />
+        <span className="absolute right-12 top-[7.5rem] h-[1px] w-[72%] bg-[linear-gradient(90deg,transparent,#aa7112,transparent)]" />
+      </div>
+      <div className="absolute bottom-[16%] left-[-22%] h-[38%] w-[64%] rounded-full border border-[#9d6c16]/20 blur-[2px]" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-[linear-gradient(180deg,transparent,#000)]" />
     </div>
   );
 }
 
 function LogoMark() {
   return (
-    <a
-      href="#"
-      aria-label="Growth Partner"
-      className="inline-flex items-center gap-2.5 text-left"
-    >
-      <span className="relative h-8 w-8 shrink-0">
-        <span className="absolute left-0 top-0 h-[17px] w-[28px] rotate-[-24deg] rounded-[999px] border-[4px] border-[#0f57ff]" />
-        <span className="absolute bottom-[1px] left-[2px] h-[17px] w-[29px] rotate-[25deg] rounded-[999px] border-[4px] border-black" />
-      </span>
-      <span className="grid text-[15px] font-black leading-[0.89] tracking-normal text-black">
-        <span>growth</span>
-        <span>partner</span>
-      </span>
+    <a href="#" aria-label="Grupo Financiero Tridente" className="block w-[220px] sm:w-[292px]">
+      <Image
+        src="/tridente-logo.svg"
+        alt="Grupo Financiero Tridente"
+        width={980}
+        height={250}
+        priority
+        className="h-auto w-full"
+      />
     </a>
   );
 }
 
 function VideoFrame() {
-  if (videoUrl) {
-    return (
-      <div className="overflow-hidden rounded-[17px] bg-black shadow-[0_24px_70px_rgba(0,0,0,0.18)]">
+  return (
+    <div className="relative overflow-hidden rounded-[10px] border border-[#b98524]/48 bg-[#090909] shadow-[0_0_0_1px_rgba(255,218,122,0.08),0_22px_68px_rgba(0,0,0,0.58)]">
+      <span className="pointer-events-none absolute inset-x-[11%] top-[-1px] z-10 h-[2px] bg-[linear-gradient(90deg,transparent,#ffe08a,transparent)] shadow-[0_0_16px_rgba(255,212,88,0.95)]" />
+      <span className="pointer-events-none absolute inset-x-[20%] bottom-[-1px] z-10 h-[2px] bg-[linear-gradient(90deg,transparent,#ffd35b,transparent)] shadow-[0_0_16px_rgba(255,211,91,0.86)]" />
+      <span className="pointer-events-none absolute bottom-[22%] left-[-1px] top-[32%] z-10 w-[2px] bg-[linear-gradient(180deg,transparent,#ffc342,transparent)] shadow-[0_0_14px_rgba(255,195,66,0.85)]" />
+      <span className="pointer-events-none absolute bottom-[23%] right-[-1px] top-[31%] z-10 w-[2px] bg-[linear-gradient(180deg,transparent,#ffc342,transparent)] shadow-[0_0_14px_rgba(255,195,66,0.85)]" />
+
+      {videoUrl ? (
         <iframe
           className="aspect-video w-full"
           src={videoUrl}
@@ -126,42 +181,45 @@ function VideoFrame() {
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
         />
-      </div>
-    );
-  }
+      ) : (
+        <div className="relative aspect-video w-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,220,125,0.18),transparent_28%),linear-gradient(135deg,#1f1f1f_0%,#080808_58%,#111_100%)]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_16%,rgba(255,255,255,0.08),transparent_18%),radial-gradient(circle_at_82%_24%,rgba(247,189,52,0.15),transparent_24%)]" />
+          <button
+            type="button"
+            aria-label="Reproducir video"
+            className="absolute left-1/2 top-1/2 flex h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#f7bd34] bg-black/45 text-[#f7bd34] shadow-[0_0_34px_rgba(247,189,52,0.32),inset_0_0_24px_rgba(247,189,52,0.1)] backdrop-blur transition hover:scale-[1.03] hover:bg-[#120d03]"
+          >
+            <Play className="ml-1 h-9 w-9 fill-[#f7bd34] text-[#f7bd34]" aria-hidden="true" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
+function HighlightGrid() {
   return (
-    <div className="relative overflow-hidden rounded-[17px] bg-[#151515] shadow-[0_24px_70px_rgba(0,0,0,0.18)]">
-      <div className="relative aspect-video w-full bg-[linear-gradient(180deg,#2a2a2a_0%,#111_100%)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_24%,rgba(255,255,255,0.16),transparent_24%),radial-gradient(circle_at_72%_18%,rgba(15,87,255,0.22),transparent_26%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-[37%] bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.62))]" />
+    <div className="grid grid-cols-2 border-t border-[#f7bd34]/10 pb-5 pt-5 sm:grid-cols-4 sm:pb-3">
+      {highlights.map((item, index) => {
+        const Icon = item.icon;
 
-        <div className="absolute left-[17%] top-[18%] h-[49%] w-[22%] rounded-t-full bg-[linear-gradient(180deg,#d9e4f7,#6f7890_42%,#111827_43%)] opacity-95" />
-        <div className="absolute right-[16%] top-[17%] h-[52%] w-[24%] rounded-t-full bg-[linear-gradient(180deg,#dce7fb,#788197_41%,#050505_42%)] opacity-95" />
-        <div className="absolute bottom-[9%] left-[36%] h-[26%] w-[30%] rounded-t-lg bg-[#222]" />
-
-        <button
-          type="button"
-          aria-label="Reproducir video"
-          className="absolute left-1/2 top-1/2 flex h-[84px] w-[84px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#0f57ff]/78 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_14px_36px_rgba(0,0,0,0.35)] backdrop-blur transition hover:bg-[#0f57ff]"
-        >
-          <CirclePlay className="h-12 w-12 fill-white/90 text-white" aria-hidden="true" />
-        </button>
-
-        <div className="absolute bottom-[16%] left-[7%] right-[7%] h-[6px] rounded-full bg-[#0f57ff]/78 shadow-[0_0_18px_rgba(15,87,255,0.92)]">
-          <span className="absolute left-0 top-1/2 h-[20px] w-[20px] -translate-y-1/2 rounded-full bg-[#7aa6ff] ring-[5px] ring-black/35" />
-          <span className="absolute left-1/2 top-1/2 h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/50 ring-[4px] ring-white/12" />
-          <span className="absolute left-1/2 top-1/2 h-[12px] w-[12px] -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[3px] bg-white" />
-          <span className="absolute right-0 top-1/2 h-[20px] w-[20px] -translate-y-1/2 rounded-full bg-[#7aa6ff] ring-[5px] ring-black/35" />
-        </div>
-
-        <div className="absolute bottom-[7%] left-[4%] right-[4%] flex items-center justify-between text-[11px] font-semibold text-white/78">
-          <span>Como aplicar</span>
-          <span>$5K</span>
-          <span>$20K</span>
-          <span>Closer</span>
-        </div>
-      </div>
+        return (
+          <article
+            key={item.title}
+            className={`px-3 text-center sm:px-5 ${
+              index > 0 ? "sm:border-l sm:border-[#f7bd34]/14" : ""
+            } ${index % 2 === 1 ? "border-l border-[#f7bd34]/14 sm:border-l" : ""}`}
+          >
+            <Icon className="mx-auto h-10 w-10 text-[#f7bd34] sm:h-12 sm:w-12" strokeWidth={1.75} aria-hidden="true" />
+            <h2 className="mt-3 text-[0.74rem] font-black uppercase leading-4 text-white sm:text-[0.84rem]">
+              {item.title}
+            </h2>
+            <p className="mx-auto mt-3 max-w-[180px] text-[0.73rem] leading-5 text-white/76 sm:text-[0.82rem]">
+              {item.body}
+            </p>
+          </article>
+        );
+      })}
     </div>
   );
 }
@@ -169,55 +227,46 @@ function VideoFrame() {
 function ApplicationEmbeds() {
   return (
     <div className="mx-auto max-w-[820px]">
-      <EmbedPanel
-        src={ghlCalendarUrl}
-        fallback="Pega tu URL de calendario GHL con formulario integrado en NEXT_PUBLIC_GHL_CALENDAR_EMBED_URL."
-      />
+      <EmbedPanel />
     </div>
   );
 }
 
-function EmbedPanel({
-  src,
-  fallback,
-}: {
-  src?: string;
-  fallback: string;
-}) {
+function EmbedPanel() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <div className="overflow-hidden border border-white/10 bg-[#0b0b0b]">
-      <div className="flex min-h-16 items-center gap-3 border-b border-white/10 px-5">
-        <div className="flex h-9 w-9 items-center justify-center rounded-[4px] bg-[#0f57ff] text-white">
+    <div className="overflow-hidden rounded-[8px] border border-[#c5912c]/36 bg-[#090909] shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
+      <div className="flex min-h-16 items-center gap-3 border-b border-[#f7bd34]/18 px-5">
+        <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[linear-gradient(180deg,#ffd35b,#d58b12)] text-black">
           <CalendarCheck className="h-5 w-5" aria-hidden="true" />
         </div>
         <h2 className="text-base font-black uppercase tracking-[0.08em] text-white">
-          Formulario y calendario
+          Formulario de aplicacion
         </h2>
       </div>
 
-      {src ? (
-        <>
-          <iframe
-            className="h-[760px] w-full bg-white"
-            src={src}
-            title="Formulario y calendario de aplicacion"
-            allow="payment"
-            loading="lazy"
-            scrolling="no"
-          />
-          <Script
-            src="https://agent.thrive-companies.com/js/form_embed.js"
-            strategy="afterInteractive"
-          />
-        </>
-      ) : (
-        <div className="flex min-h-[420px] flex-col items-center justify-center px-6 text-center">
-          <CheckCircle2 className="h-12 w-12 text-[#75a3ff]" aria-hidden="true" />
-          <p className="mt-5 max-w-sm text-lg font-bold leading-7 text-white">
-            {fallback}
-          </p>
-        </div>
-      )}
+      <div className="relative min-h-[760px] bg-white">
+        {!isLoaded ? (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-[#090909] px-6 text-center">
+            <p className="text-base font-black uppercase tracking-[0.08em] text-[#f7bd34]">
+              Cargando formulario...
+            </p>
+          </div>
+        ) : null}
+
+        <iframe
+          id={ghlSurveyId}
+          className="min-h-[760px] w-full bg-white"
+          src={ghlSurveyUrl}
+          title="survey"
+          loading="lazy"
+          scrolling="no"
+          style={{ border: "none", width: "100%" }}
+          onLoad={() => setIsLoaded(true)}
+        />
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+      </div>
     </div>
   );
 }
