@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   title: "Grupo Financiero Tridente",
   description:
     "Landing VSL para aplicar al equipo remoto de Grupo Financiero Tridente con video y calendario de GoHighLevel.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/tridente-favicon.png", type: "image/png" },
+    ],
+    apple: "/tridente-favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

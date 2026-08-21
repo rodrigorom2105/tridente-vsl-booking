@@ -36,7 +36,7 @@ const highlights = [
   {
     icon: ShieldCheck,
     title: "Bulletproof",
-    body: "Cientos de agentes en la industria lo estan haciendo. Evidencia probada.",
+    body: "Sistema probado con cientos de agentes en la industria.",
   },
 ];
 
@@ -152,12 +152,12 @@ function GoldAtmosphere() {
 
 function LogoMark() {
   return (
-    <a href="#" aria-label="Grupo Financiero Tridente" className="block w-[220px] sm:w-[292px]">
+    <a href="#" aria-label="Grupo Financiero Tridente" className="block w-[180px] sm:w-[240px] lg:w-[260px]">
       <Image
-        src="/tridente-logo.svg"
+        src="/tridente-logo.png"
         alt="Grupo Financiero Tridente"
-        width={980}
-        height={250}
+        width={1446}
+        height={508}
         priority
         className="h-auto w-full"
       />
