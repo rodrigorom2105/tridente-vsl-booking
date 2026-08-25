@@ -14,7 +14,8 @@ import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
 const videoUrl = process.env.NEXT_PUBLIC_VIDEO_EMBED_URL;
-const ghlSurveyUrl = "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
+const ghlSurveyUrl =
+  "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
 const ghlSurveyId = "8KeDBS7oRjUWKuq7Japx";
 
 const highlights = [
@@ -107,15 +108,15 @@ export default function VslLanding() {
               <button
                 type="button"
                 onClick={handleApplyClick}
-                className="mx-auto mt-6 inline-flex min-h-12 w-full max-w-[330px] items-center justify-center gap-3 rounded-[6px] border border-[#fff0a8]/45 bg-[linear-gradient(180deg,#ffd35b_0%,#f2ad23_47%,#d58b12_100%)] px-7 py-3.5 text-base font-black tracking-normal text-[#070707] shadow-[0_16px_38px_rgba(231,166,38,0.28),inset_0_1px_0_rgba(255,255,255,0.45)] transition hover:translate-y-[-1px] hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-[#f6bb36]/25 sm:text-lg"
-              >
+                className="mx-auto mt-6 inline-flex min-h-12 w-full max-w-[330px] items-center justify-center gap-3 rounded-[6px] border border-[#fff0a8]/45 bg-[linear-gradient(180deg,#ffd35b_0%,#f2ad23_47%,#d58b12_100%)] px-7 py-3.5 text-base font-black tracking-normal text-[#070707] shadow-[0_16px_38px_rgba(231,166,38,0.28),inset_0_1px_0_rgba(255,255,255,0.45)] transition hover:translate-y-[-1px] hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-[#f6bb36]/25 sm:text-lg">
                 Aplicar al equipo
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                <ArrowRight
+                  className="h-5 w-5"
+                  aria-hidden="true"
+                />
               </button>
             </div>
           </div>
-
-          <HighlightGrid />
         </div>
       </section>
 
@@ -123,8 +124,7 @@ export default function VslLanding() {
         <section
           ref={applicationRef}
           id="aplicacion"
-          className="bg-[linear-gradient(180deg,#050505_0%,#0c0802_100%)] px-5 pb-14 pt-8 text-white sm:px-8 lg:pb-[4.5rem]"
-        >
+          className="bg-[linear-gradient(180deg,#050505_0%,#0c0802_100%)] px-5 pb-14 pt-8 text-white sm:px-8 lg:pb-[4.5rem]">
           <div className="mx-auto max-w-[1040px]">
             <ApplicationEmbeds />
           </div>
@@ -136,7 +136,9 @@ export default function VslLanding() {
 
 function GoldAtmosphere() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_12%,rgba(255,201,76,0.13),transparent_26%),radial-gradient(circle_at_84%_10%,rgba(255,198,67,0.12),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.025)_0%,transparent_34%,rgba(244,174,42,0.06)_100%)]" />
       <div className="absolute -right-12 top-12 h-[210px] w-[410px] rotate-[-28deg] opacity-90 sm:right-6 sm:top-14">
         <span className="absolute right-0 top-3 h-[2px] w-full bg-[linear-gradient(90deg,transparent,#f7bd34,transparent)] shadow-[0_0_16px_rgba(247,189,52,0.95)]" />
@@ -152,7 +154,10 @@ function GoldAtmosphere() {
 
 function LogoMark() {
   return (
-    <a href="#" aria-label="Grupo Financiero Tridente" className="block w-[180px] sm:w-[240px] lg:w-[260px]">
+    <a
+      href="#"
+      aria-label="Grupo Financiero Tridente"
+      className="block w-[180px] sm:w-[240px] lg:w-[260px]">
       <Image
         src="/tridente-logo.png"
         alt="Grupo Financiero Tridente"
@@ -187,9 +192,11 @@ function VideoFrame() {
           <button
             type="button"
             aria-label="Reproducir video"
-            className="absolute left-1/2 top-1/2 flex h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#f7bd34] bg-black/45 text-[#f7bd34] shadow-[0_0_34px_rgba(247,189,52,0.32),inset_0_0_24px_rgba(247,189,52,0.1)] backdrop-blur transition hover:scale-[1.03] hover:bg-[#120d03]"
-          >
-            <Play className="ml-1 h-9 w-9 fill-[#f7bd34] text-[#f7bd34]" aria-hidden="true" />
+            className="absolute left-1/2 top-1/2 flex h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#f7bd34] bg-black/45 text-[#f7bd34] shadow-[0_0_34px_rgba(247,189,52,0.32),inset_0_0_24px_rgba(247,189,52,0.1)] backdrop-blur transition hover:scale-[1.03] hover:bg-[#120d03]">
+            <Play
+              className="ml-1 h-9 w-9 fill-[#f7bd34] text-[#f7bd34]"
+              aria-hidden="true"
+            />
           </button>
         </div>
       )}
@@ -208,9 +215,12 @@ function HighlightGrid() {
             key={item.title}
             className={`px-3 text-center sm:px-5 ${
               index > 0 ? "sm:border-l sm:border-[#f7bd34]/14" : ""
-            } ${index % 2 === 1 ? "border-l border-[#f7bd34]/14 sm:border-l" : ""}`}
-          >
-            <Icon className="mx-auto h-10 w-10 text-[#f7bd34] sm:h-12 sm:w-12" strokeWidth={1.75} aria-hidden="true" />
+            } ${index % 2 === 1 ? "border-l border-[#f7bd34]/14 sm:border-l" : ""}`}>
+            <Icon
+              className="mx-auto h-10 w-10 text-[#f7bd34] sm:h-12 sm:w-12"
+              strokeWidth={1.75}
+              aria-hidden="true"
+            />
             <h2 className="mt-3 text-[0.74rem] font-black uppercase leading-4 text-white sm:text-[0.84rem]">
               {item.title}
             </h2>
@@ -239,7 +249,10 @@ function EmbedPanel() {
     <div className="overflow-hidden rounded-[8px] border border-[#c5912c]/36 bg-[#090909] shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
       <div className="flex min-h-16 items-center gap-3 border-b border-[#f7bd34]/18 px-5">
         <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[linear-gradient(180deg,#ffd35b,#d58b12)] text-black">
-          <CalendarCheck className="h-5 w-5" aria-hidden="true" />
+          <CalendarCheck
+            className="h-5 w-5"
+            aria-hidden="true"
+          />
         </div>
         <h2 className="text-base font-black uppercase tracking-[0.08em] text-white">
           Formulario de aplicacion
@@ -265,7 +278,10 @@ function EmbedPanel() {
           style={{ border: "none", width: "100%" }}
           onLoad={() => setIsLoaded(true)}
         />
-        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+        <Script
+          src="https://link.msgsndr.com/js/form_embed.js"
+          strategy="afterInteractive"
+        />
       </div>
     </div>
   );
