@@ -1,6 +1,6 @@
 # VSL Closer GHL
 
-Landing VSL en Next.js para video, CTA "Aplicar al equipo" y calendario de GoHighLevel con formulario integrado.
+Home principal en Next.js con acceso a una landing VSL para video, CTA "Aplicar al equipo" y calendario de GoHighLevel con formulario integrado.
 
 ## Stack
 
@@ -18,6 +18,11 @@ npm run dev -- -p 3001
 ```
 
 Abre `http://localhost:3001`.
+
+Rutas:
+
+- `/`: Home principal del proyecto.
+- `/vsl-landing`: Landing VSL con video y formulario de aplicacion.
 
 Si quieres verla por Tailscale Serve:
 
@@ -46,7 +51,7 @@ Si una variable queda vacia, la pagina muestra un placeholder listo para reempla
 
 ## Flujo
 
-1. El usuario ve la VSL.
+1. El usuario entra a `/vsl-landing` y ve la VSL.
 2. Hace click en `Aplicar al equipo`.
 3. Se revela la seccion de aplicacion.
 4. Se muestra el calendario de GHL con formulario integrado.

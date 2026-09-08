@@ -2,44 +2,15 @@
 
 import {
   ArrowRight,
-  BarChart3,
   CalendarCheck,
-  Globe2,
-  Play,
-  ShieldCheck,
-  UsersRound,
 } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
-import { useEffect, useRef, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 
-const videoUrl = process.env.NEXT_PUBLIC_VIDEO_EMBED_URL;
-const ghlSurveyUrl =
-  "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
+const wistiaMediaId = "4nxe88iqky";
+const ghlSurveyUrl = "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
 const ghlSurveyId = "8KeDBS7oRjUWKuq7Japx";
-
-const highlights = [
-  {
-    icon: BarChart3,
-    title: "Ingresos reales",
-    body: "De $8K a $30K+ al mes.",
-  },
-  {
-    icon: UsersRound,
-    title: "Equipo ganador",
-    body: "Entrenamiento, apoyo y cultura de alto rendimiento.",
-  },
-  {
-    icon: Globe2,
-    title: "Libertad desde cualquier lugar",
-    body: "Trabaja remoto. Tú pones los límites, nosotros el camino.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Bulletproof",
-    body: "Sistema probado con cientos de agentes en la industria.",
-  },
-];
 
 export default function VslLanding() {
   const [showApplication, setShowApplication] = useState(false);
@@ -178,57 +149,25 @@ function VideoFrame() {
       <span className="pointer-events-none absolute bottom-[22%] left-[-1px] top-[32%] z-10 w-[2px] bg-[linear-gradient(180deg,transparent,#ffc342,transparent)] shadow-[0_0_14px_rgba(255,195,66,0.85)]" />
       <span className="pointer-events-none absolute bottom-[23%] right-[-1px] top-[31%] z-10 w-[2px] bg-[linear-gradient(180deg,transparent,#ffc342,transparent)] shadow-[0_0_14px_rgba(255,195,66,0.85)]" />
 
-      {videoUrl ? (
-        <iframe
-          className="aspect-video w-full"
-          src={videoUrl}
-          title="Presentacion para aplicar al equipo"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-        />
-      ) : (
-        <div className="relative aspect-video w-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,220,125,0.18),transparent_28%),linear-gradient(135deg,#1f1f1f_0%,#080808_58%,#111_100%)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_16%,rgba(255,255,255,0.08),transparent_18%),radial-gradient(circle_at_82%_24%,rgba(247,189,52,0.15),transparent_24%)]" />
-          <button
-            type="button"
-            aria-label="Reproducir video"
-            className="absolute left-1/2 top-1/2 flex h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#f7bd34] bg-black/45 text-[#f7bd34] shadow-[0_0_34px_rgba(247,189,52,0.32),inset_0_0_24px_rgba(247,189,52,0.1)] backdrop-blur transition hover:scale-[1.03] hover:bg-[#120d03]">
-            <Play
-              className="ml-1 h-9 w-9 fill-[#f7bd34] text-[#f7bd34]"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-      )}
+      <WistiaVideo />
     </div>
   );
 }
 
-function HighlightGrid() {
+function WistiaVideo() {
   return (
-    <div className="grid grid-cols-2 border-t border-[#f7bd34]/10 pb-5 pt-5 sm:grid-cols-4 sm:pb-3">
-      {highlights.map((item, index) => {
-        const Icon = item.icon;
-
-        return (
-          <article
-            key={item.title}
-            className={`px-3 text-center sm:px-5 ${
-              index > 0 ? "sm:border-l sm:border-[#f7bd34]/14" : ""
-            } ${index % 2 === 1 ? "border-l border-[#f7bd34]/14 sm:border-l" : ""}`}>
-            <Icon
-              className="mx-auto h-10 w-10 text-[#f7bd34] sm:h-12 sm:w-12"
-              strokeWidth={1.75}
-              aria-hidden="true"
-            />
-            <h2 className="mt-3 text-[0.74rem] font-black uppercase leading-4 text-white sm:text-[0.84rem]">
-              {item.title}
-            </h2>
-            <p className="mx-auto mt-3 max-w-[180px] text-[0.73rem] leading-5 text-white/76 sm:text-[0.82rem]">
-              {item.body}
-            </p>
-          </article>
-        );
+    <div className="aspect-video w-full">
+      <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
+      <Script
+        src={`https://fast.wistia.com/embed/${wistiaMediaId}.js`}
+        strategy="afterInteractive"
+        type="module"
+      />
+      <style>{`wistia-player[media-id='4nxe88iqky']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4nxe88iqky/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`}</style>
+      {createElement("wistia-player", {
+        "media-id": wistiaMediaId,
+        aspect: "1.7777777777777777",
+        className: "block w-full",
       })}
     </div>
   );
