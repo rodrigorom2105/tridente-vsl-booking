@@ -8,7 +8,7 @@ import Image from "next/image";
 import Script from "next/script";
 import { createElement, useEffect, useRef, useState } from "react";
 
-const wistiaMediaId = "4nxe88iqky";
+const wistiaMediaId = "tj6hsg5pw9";
 const ghlSurveyUrl = "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
 const ghlSurveyId = "8KeDBS7oRjUWKuq7Japx";
 
@@ -163,7 +163,7 @@ function WistiaVideo() {
         strategy="afterInteractive"
         type="module"
       />
-      <style>{`wistia-player[media-id='4nxe88iqky']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4nxe88iqky/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`}</style>
+      <style>{`wistia-player[media-id='${wistiaMediaId}']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${wistiaMediaId}/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }`}</style>
       {createElement("wistia-player", {
         "media-id": wistiaMediaId,
         aspect: "1.7777777777777777",
