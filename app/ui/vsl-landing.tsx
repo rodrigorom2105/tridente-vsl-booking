@@ -7,6 +7,7 @@ import {
 import Image from "next/image";
 import Script from "next/script";
 import { createElement, useEffect, useRef, useState } from "react";
+import { cleanupHomeLeadWidget } from "./home-lead-widget";
 
 const wistiaMediaId = "tj6hsg5pw9";
 const ghlSurveyUrl = "https://api.leadconnectorhq.com/widget/survey/8KeDBS7oRjUWKuq7Japx";
@@ -15,6 +16,10 @@ const ghlSurveyId = "8KeDBS7oRjUWKuq7Japx";
 export default function VslLanding() {
   const [showApplication, setShowApplication] = useState(false);
   const applicationRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    cleanupHomeLeadWidget();
+  }, []);
 
   useEffect(() => {
     if (!showApplication) {
