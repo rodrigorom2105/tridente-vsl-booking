@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const widgetId = "6aa9795078b1e20914350562";
+const widgetId = "6aab7088e6fc08592415cb22";
 const scriptId = "tridente-home-lead-widget";
 
 export function cleanupHomeLeadWidget() {
